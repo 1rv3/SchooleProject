@@ -1,0 +1,173 @@
+﻿@{
+    ViewData["Title"] = "من نحن";
+    ViewData["CurrentPage"] = "Home";
+    ViewData["type"] = "user";
+}
+
+<main>
+    <!-- الهيرو -->
+    <section class="hero-pattern py-20 bg-gradient-to-b from-indigo-50 to-white">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">قصتنا في متجر نيكست</h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                نهتم بتقديم أفضل المنتجات التقنية بأسعار تنافسية
+                وخدمة عملاء مميزة
+            </p>
+        </div>
+    </section>
+
+    <!-- مهمتنا ورؤيتنا -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold mb-6">رؤيتنا</h2>
+                    <p class="text-gray-600 mb-6">
+                        أن نكون الوجهة الأولى للتسوق الإلكتروني في المنطقة العربية من خلال
+                        تقديم تجربة تسوق فريدة ومنتجات عالية الجودة.
+                    </p>
+
+                    <h2 class="text-3xl font-bold mb-6">مهمتنا</h2>
+                    <p class="text-gray-600">
+                        تمكين العملاء من الوصول إلى أحدث المنتجات التقنية بأسعار تنافسية مع
+                        ضمان جودة عالية وخدمة عملاء مميزة.
+                    </p>
+                </div>
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                         alt="فريق العمل" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- إحصائيات -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <div class="text-4xl font-bold text-indigo-600 mb-2">+50K</div>
+                    <p class="text-gray-600">عميل راضي</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <div class="text-4xl font-bold text-indigo-600 mb-2">+500</div>
+                    <p class="text-gray-600">علامة تجارية</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <div class="text-4xl font-bold text-indigo-600 mb-2">10K+</div>
+                    <p class="text-gray-600">منتج متاح</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <div class="text-4xl font-bold text-indigo-600 mb-2">24/7</div>
+                    <p class="text-gray-600">دعم فني</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- فريق العمل -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center">فريق العمل</h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- عضو الفريق 1 -->
+                <div class="team-member bg-white rounded-xl shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md">
+                    <div class="overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80"
+                             alt="أحمد كبها" class="w-full h-80 object-cover transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl">أحمد كبها</h3>
+                        <p class="text-indigo-600 mb-2">المدير التنفيذي</p>
+                        <p class="text-gray-600">مؤسس متجر نيكست ورائد أعمال في مجال التجارة الإلكترونية</p>
+                    </div>
+                </div>
+
+                <!-- عضو الفريق 2 -->
+                <div class="team-member bg-white rounded-xl shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md">
+                    <div class="overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80"
+                             alt="سارة عبدالله" class="w-full h-80 object-cover transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl">سارة عبدالله</h3>
+                        <p class="text-indigo-600 mb-2">مديرة التسويق</p>
+                        <p class="text-gray-600">خبيرة في التسويق الرقمي وإدارة الحملات الإعلانية</p>
+                    </div>
+                </div>
+
+                <!-- عضو الفريق 3 -->
+                <div class="team-member bg-white rounded-xl shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md">
+                    <div class="overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80"
+                             alt="نورا خالد" class="w-full h-80 object-cover transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl">نورا خالد</h3>
+                        <p class="text-indigo-600 mb-2">مديرة خدمة العملاء</p>
+                        <p class="text-gray-600">مختصة في حل مشاكل العملاء وتقديم تجربة تسوق مميزة</p>
+                    </div>
+                </div>
+
+                <!-- عضو الفريق 4 -->
+                <div class="team-member bg-white rounded-xl shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md">
+                    <div class="overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80"
+                             alt="أية أحمد" class="w-full h-80 object-cover transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl">أية أحمد</h3>
+                        <p class="text-indigo-600 mb-2">مديرة التكنولوجيا</p>
+                        <p class="text-gray-600">مطورة وخبيرة في حلول التجارة الإلكترونية والتقنيات الحديثة</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- لماذا تختارنا -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center">لماذا تختار متجر نيكست؟</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- ميزة 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">منتجات أصلية</h3>
+                    <p class="text-gray-600">جميع منتجاتنا أصلية وذات جودة عالية مع ضمان من المصنع</p>
+                </div>
+
+                <!-- ميزة 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">توصيل سريع</h3>
+                    <p class="text-gray-600">توصيل خلال 1-3 أيام عمل لجميع أنحاء المملكة</p>
+                </div>
+
+                <!-- ميزة 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">دفع آمن</h3>
+                    <p class="text-gray-600">خيارات دفع متعددة وآمنة مع حماية بياناتك</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
