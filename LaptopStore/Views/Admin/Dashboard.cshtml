@@ -1,0 +1,162 @@
+﻿@model DashboardViewModel
+@{
+    Layout = "_AdminLayout";
+    ViewData["CurrentPage"] = "admin";
+    ViewData["Title"] = "لوحة التحكم";
+}
+<div class="container mx-auto px-4 py-6">
+    <h1 class="text-2xl font-bold text-gray-800 mb-6">لوحة التحكم</h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+        <!-- بطاقات الإحصائيات -->
+        <div class="bg-white rounded-lg shadow p-6 hover:shadow-md transition-shadow">
+            <div class="flex justify-between items-center">
+                <div>
+                    <p class="text-gray-500">إجمالي المبيعات</p>
+                    <h3 class="text-2xl font-bold">@Model.TotalSales ر.س</h3>
+                </div>
+                <div class="bg-indigo-100 p-3 rounded-full">
+                    <i class="fas fa-shopping-cart text-indigo-600"></i>
+                </div>
+            </div>
+            <p class="text-green-500 text-sm mt-2"><i class="fas fa-arrow-up mr-1"></i> 12% عن الشهر الماضي</p>
+        </div>
+
+        <div class="bg-white rounded-lg shadow p-6 hover:shadow-md transition-shadow">
+            <div class="flex justify-between items-center">
+                <div>
+                    <p class="text-gray-500">إجمالي المنتجات</p>
+                    <h3 class="text-2xl font-bold">@Model.TotalProducts</h3>
+                </div>
+                <div class="bg-green-100 p-3 rounded-full">
+                    <i class="fas fa-laptop text-green-600"></i>
+                </div>
+            </div>
+            <p class="text-green-500 text-sm mt-2"><i class="fas fa-arrow-up mr-1"></i> @Model.NewProducts منتجات جديدة</p>
+        </div>
+
+        <div class="bg-white rounded-lg shadow p-6 hover:shadow-md transition-shadow">
+            <div class="flex justify-between items-center">
+                <div>
+                    <p class="text-gray-500">إجمالي العملاء</p>
+                    <h3 class="text-2xl font-bold">@Model.TotalCustomers</h3>
+                </div>
+                <div class="bg-blue-100 p-3 rounded-full">
+                    <i class="fas fa-users text-blue-600"></i>
+                </div>
+            </div>
+            <p class="text-green-500 text-sm mt-2"><i class="fas fa-arrow-up mr-1"></i> @Model.NewCustomers عملاء جدد</p>
+        </div>
+
+        <div class="bg-white rounded-lg shadow p-6 hover:shadow-md transition-shadow">
+            <div class="flex justify-between items-center">
+                <div>
+                    <p class="text-gray-500">الطلبات الجديدة</p>
+                    <h3 class="text-2xl font-bold">@Model.NewOrders</h3>
+                </div>
+                <div class="bg-yellow-100 p-3 rounded-full">
+                    <i class="fas fa-clipboard-list text-yellow-600"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+        <!-- مخطط المبيعات -->
+        <div class="bg-white rounded-lg shadow p-6 hover:shadow-md transition-shadow">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-semibold">آخر المبيعات</h3>
+                <select class="border rounded px-2 py-1 text-sm">
+                    <option>آخر 7 أيام</option>
+                    <option>آخر 30 يومًا</option>
+                    <option>هذا الشهر</option>
+                </select>
+            </div>
+            <div class="h-64 bg-gray-100 rounded flex items-center justify-center">
+                <p class="text-gray-500">مخطط المبيعات سيظهر هنا</p>
+            </div>
+        </div>
+
+        <!-- آخر الطلبات -->
+        <div class="bg-white rounded-lg shadow p-6 hover:shadow-md transition-shadow">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-semibold">آخر الطلبات</h3>
+                <a href="/Admin/Orders" class="text-blue-600 text-sm">عرض الكل</a>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="min-w-full">
+                    <thead>
+                        <tr class="border-b">
+                            <th class="text-right py-2 px-4">رقم الطلب</th>
+                            <th class="text-right py-2 px-4">العميل</th>
+                            <th class="text-right py-2 px-4">الحالة</th>
+                            <th class="text-right py-2 px-4">المبلغ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var Order in Model.RecentOrders)
+                        {
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="py-3 px-4">#@Order.OrderId</td>
+                                <td class="py-3 px-4">@Order.Customer.FullName</td>
+                                @if (Order.Status == "Completed")
+                                {
+                                    <td class="py-3 px-4"><span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">مكتمل</span></td>
+                                }
+                                else if (Order.Status == "Cancelled")
+                                {
+                                    <td class="py-3 px-4"><span class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs">ملغي</span></td>
+                                }
+                                else if (Order.Status == "Shipped")
+                                {
+                                    <td class="py-3 px-4"><span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">شحن</span></td>
+                                }
+                                else if (Order.Status == "Processing" || Order.Status == "Pending")
+                                {
+                                    <td class="py-3 px-4"><span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs">قيد التجهيز</span></td>
+                                }
+                                <td class="py-3 px-4">@Order.TotalAmount ر.س</td>
+                            </tr>
+                        }
+
+                         <!--
+                        <tr class="border-b hover:bg-gray-50">
+                            <td class="py-3 px-4">#12345</td>
+                            <td class="py-3 px-4">أحمد محمد</td>
+                            <td class="py-3 px-4"><span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">مكتمل</span></td>
+                            <td class="py-3 px-4">4,200 ر.س</td>
+                        </tr>
+                        <tr class="border-b hover:bg-gray-50">
+                            <td class="py-3 px-4">#12344</td>
+                            <td class="py-3 px-4">سارة عبدالله</td>
+                            <td class="py-3 px-4"><span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs">قيد التجهيز</span></td>
+                            <td class="py-3 px-4">3,150 ر.س</td>
+                        </tr>
+                        <tr class="border-b hover:bg-gray-50">
+                            <td class="py-3 px-4">#12343</td>
+                            <td class="py-3 px-4">خالد سعيد</td>
+                            <td class="py-3 px-4"><span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">شحن</span></td>
+                            <td class="py-3 px-4">5,600 ر.س</td>
+                        </tr>
+                         -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- روابط سريعة -->
+    <div class="bg-white rounded-lg shadow p-6 hover:shadow-md transition-shadow">
+        <h3 class="text-lg font-semibold mb-4">روابط سريعة</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <a href="/Admin/Products" class="bg-indigo-50 text-indigo-700 p-4 rounded-lg text-center hover:bg-indigo-100 transition-colors">
+                <i class="fas fa-laptop text-xl mb-2"></i>
+                <p>المنتجات</p>
+            </a>
+            <a href="/Admin/Customers" class="bg-blue-50 text-blue-700 p-4 rounded-lg text-center hover:bg-blue-100 transition-colors">
+                <i class="fas fa-users text-xl mb-2"></i>
+                <p>العملاء</p>
+            </a>
+        </div>
+    </div>
+</div>
